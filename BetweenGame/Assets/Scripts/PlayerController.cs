@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerLeave2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Mushroom"))
         {
