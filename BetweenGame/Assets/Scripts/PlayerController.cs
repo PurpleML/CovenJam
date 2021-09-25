@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
 
     private bool jumpHold;
     private bool grounded;
+    private bool inMovement;
     private Mushroom touchingShroom;
+    private GameObject nearNPC;
 
     // Start is called before the first frame update
     void Awake()
@@ -25,47 +27,52 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         jumpHold = false;
         grounded = false;
+        inMovement = true;
         touchingShroom = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // MOVEMENT
-        float movementHor = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(movementHor * speed, rb.velocity.y);
-        if (movementHor != 0)
+        if (inMovement)
         {
-            sprite.flipX = movementHor > 0? false:  true;
-        }
-
-        // JUMPING
-        if (Input.GetButtonDown("Jump") && grounded)
-        {
-            if (grounded)
+            // MOVEMENT
+            float movementHor = Input.GetAxisRaw("Horizontal");
+            rb.velocity = new Vector2(movementHor * speed, rb.velocity.y);
+            if (movementHor != 0)
             {
-                rb.velocity += new Vector2(0.0f, jumpspeed);
-                grounded = false;
-                jumpHold = true;
-                Invoke("EndJumpHold", jumpHoldDuration);
+                sprite.flipX = movementHor > 0 ? false : true;
             }
-            else if (jumpHold)
+
+            // JUMPING
+            if (Input.GetButtonDown("Jump") && grounded)
             {
-                rb.velocity += new Vector2(0.0f, jumpHoldSpeed);
+                if (grounded)
+                {
+                    rb.velocity += new Vector2(0.0f, jumpspeed);
+                    grounded = false;
+                    jumpHold = true;
+                    Invoke("EndJumpHold", jumpHoldDuration);
+                }
+                else if (jumpHold)
+                {
+                    rb.velocity += new Vector2(0.0f, jumpHoldSpeed);
+                }
             }
-        }
 
-        // INTERACTING WITH A MUSHROOM
-        if (Input.GetKeyDown(KeyCode.S) && touchingShroom != null)
-        {
-            Vector2 teleToPos = touchingShroom.getTargetShroomLocation();
-            Vector3 teleTo3 = new Vector3(teleToPos.x, teleToPos.y, transform.position.z);
-            transform.position = teleTo3;
-        }
+            // INTERACTING WITH A MUSHROOM
+            if (Input.GetKeyDown(KeyCode.S) && touchingShroom != null)
+            {
+                Vector2 teleToPos = touchingShroom.getTargetShroomLocation();
+                Vector3 teleTo3 = new Vector3(teleToPos.x, teleToPos.y, transform.position.z);
+                transform.position = teleTo3;
+            }
 
-        //ANIMATOR CONTROL
-        animator.SetFloat("moveHor", Mathf.Abs(movementHor));
-        animator.SetBool("isJumping", !grounded);
+            //ANIMATOR CONTROL
+            animator.SetFloat("moveHor", Mathf.Abs(movementHor));
+            animator.SetBool("isJumping", !grounded);
+        }
+    
     }
 
     private void EndJumpHold()
@@ -98,6 +105,10 @@ public class PlayerController : MonoBehaviour
         {
             touchingShroom = collision.gameObject.GetComponent<Mushroom>();
         }
+        else if (collision.gameObject.CompareTag("NPC"))
+        {
+            nearNPC = collision.gameObject;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -105,6 +116,10 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Mushroom"))
         {
             touchingShroom = null;
+        }
+        else if (collision.gameObject.CompareTag("NPC"))
+        {
+            nearNPC = null;
         }
     }
 }
