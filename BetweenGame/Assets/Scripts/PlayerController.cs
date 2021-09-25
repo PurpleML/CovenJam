@@ -4,91 +4,107 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed;
-    public float jumpForce;
-
-    public GameObject groundCheck;
-
-    public Vector2 groundCheckPoint;
-    public float groundCheckRadius;
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpspeed;
+    [SerializeField] private float jumpHoldSpeed;
+    [SerializeField] private float jumpHoldDuration;
 
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private Animator animator;
 
-    // separate variables for use in animation manager
-    private float movementHor;
-    private bool isJumping;
+    private bool jumpHold;
+    private bool grounded;
     private Mushroom touchingShroom;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();;
         animator = GetComponent<Animator>();
+        jumpHold = false;
+        grounded = false;
+        touchingShroom = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        movementHor = Input.GetAxisRaw("Horizontal");
-        // mirror sprite to keep things simple
-        if(movementHor < 0)
+        // MOVEMENT
+        float movementHor = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(movementHor * speed, rb.velocity.y);
+        if (movementHor != 0)
         {
-            sprite.flipX = true;
+            sprite.flipX = movementHor > 0? false:  true;
         }
-        //only un-mirror if actively going other way
-        else if(movementHor > 0)
-        {
-            sprite.flipX = false;
-        }
-        //set variables used in animator
-        animator.SetFloat("moveHor", Mathf.Abs(movementHor));   // this one is absolute since sprite flipping is done here
 
-        bool grounded = groundCheck.GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Ground"));
+        // JUMPING
         if (Input.GetButtonDown("Jump") && grounded)
         {
-            isJumping = true;
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            if (grounded)
+            {
+                rb.velocity += new Vector2(0.0f, jumpspeed);
+                grounded = false;
+                jumpHold = true;
+                Invoke("EndJumpHold", jumpHoldDuration);
+            }
+            else if (jumpHold)
+            {
+                rb.velocity += new Vector2(0.0f, jumpHoldSpeed);
+            }
         }
 
-        bool shroomed = GetComponent<CircleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Mushroom"));
-        if (Input.GetKeyDown(KeyCode.S) && shroomed)
+        // INTERACTING WITH A MUSHROOM
+        if (Input.GetKeyDown(KeyCode.S) && touchingShroom != null)
         {
-            if(touchingShroom == null)
-            {
-                Debug.Log("no shroom");
-            }
-            transform.position = touchingShroom.getTargetShroomLocation();
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            Vector2 teleToPos = touchingShroom.getTargetShroomLocation();
+            Vector3 teleTo3 = new Vector3(teleToPos.x, teleToPos.y, transform.position.z);
+            transform.position = teleTo3;
         }
+
+        //ANIMATOR CONTROL
+        animator.SetFloat("moveHor", Mathf.Abs(movementHor));
+        animator.SetBool("isJumping", !grounded);
+    }
+
+    private void EndJumpHold()
+    {
+        jumpHold = false;
     }
 
     // FixedUpdate is called once per time step
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(movementHor * movementSpeed, rb.velocity.y);
-
-        //Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, groundLayer);
-        //Vector2 relativeCheckPoint = new Vector2(transform.position.x, transform.position.y) + groundCheckPoint;
-        //Collider2D[] colliders = Physics2D.OverlapCircleAll(relativeCheckPoint, groundCheckRadius);
-        bool grounded = groundCheck.GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Ground"));
-        //for (int i = 0; i < colliders.Length; i++)
-        //{
-            //if (colliders[i].gameObject.CompareTag("Floor"))
-            if(grounded)
-            {
-                //Debug.Log("grounded!");
-                isJumping = false;
-
-            }
-        //}
-        animator.SetBool("isJumping", isJumping);
     }
 
-    public void setShroom(Mushroom mushroom)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        touchingShroom = mushroom;
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
+        else if (collision.gameObject.CompareTag("Mushroom"))
+        {
+            touchingShroom = collision.gameObject.GetComponent<Mushroom>();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("Mushroom"))
+        {
+            touchingShroom = collision.gameObject.GetComponent<Mushroom>();
+        }
+    }
+
+    private void OnTriggerLeave2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Mushroom"))
+        {
+            touchingShroom = null;
+        }
     }
 }
