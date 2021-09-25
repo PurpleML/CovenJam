@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("NPC"))
         {
             nearNPC = collision.gameObject;
+            FindObjectOfType<DialogueManager>().StartSpeaking(collision.GetComponent<NPCSpeaker>().dialogue);
         }
     }
 

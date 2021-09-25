@@ -8,6 +8,8 @@ public class DialogueManager : MonoBehaviour
     public Text nameText;
     public Text lineText;
 
+    public Animator dialogueAnimator;
+
     private Queue<string> lines;
 
     // Start is called before the first frame update
@@ -25,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     public void StartSpeaking( Dialogue dialogue)
     {
         lines.Clear();
+        dialogueAnimator.SetBool("inDialogue",true);
         nameText.text = dialogue.speaker;
         foreach(string line in dialogue.lines)
         {
@@ -42,11 +45,23 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string line = lines.Dequeue();
-        lineText.text = line;
+        //lineText.text = line;
+        StopAllCoroutines();
+        StartCoroutine(TypeLine(line));
+    }
+
+    IEnumerator TypeLine (string line)
+    {
+        lineText.text = "";
+        foreach(char letter in line.ToCharArray())
+        {
+            lineText.text += letter;
+            yield return null;
+        }
     }
 
     public void EndSpeaking()
     {
-
+        dialogueAnimator.SetBool("inDialogue", false);
     }
 }

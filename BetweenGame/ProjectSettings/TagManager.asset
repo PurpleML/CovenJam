@@ -8,6 +8,8 @@ TagManager:
   - Key
   - Ground
   - Mushroom
+  - Bounce
+  - NPC
   layers:
   - Default
   - TransparentFX
