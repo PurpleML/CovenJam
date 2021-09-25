@@ -38,43 +38,40 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inMovement && !dead)
+        // MOVEMENT
+        float movementHor = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(movementHor * speed, rb.velocity.y);
+        if (movementHor != 0)
         {
-            // MOVEMENT
-            float movementHor = Input.GetAxisRaw("Horizontal");
-            rb.velocity = new Vector2(movementHor * speed, rb.velocity.y);
-            if (movementHor != 0)
-            {
-                sprite.flipX = movementHor > 0 ? false : true;
-            }
-
-            // JUMPING
-            if (Input.GetButtonDown("Jump") && grounded)
-            {
-                if (grounded)
-                {
-                    rb.velocity += new Vector2(0.0f, jumpspeed);
-                    grounded = false;
-                    jumpHold = true;
-                    Invoke("EndJumpHold", jumpHoldDuration);
-                }
-                else if (jumpHold)
-                {
-                    rb.velocity += new Vector2(0.0f, jumpHoldSpeed);
-                }
-            }
-
-            // INTERACTING WITH A MUSHROOM
-            if (Input.GetKeyDown(KeyCode.S) && touchingShroom != null)
-            {
-                GetComponent<FadeController>().FadeShroom();
-                Invoke("TeleportToShroom", 0.5f);
-            }
-
-            //ANIMATOR CONTROL
-            animator.SetFloat("moveHor", Mathf.Abs(movementHor));
-            animator.SetBool("isJumping", !grounded);
+            sprite.flipX = movementHor > 0 ? false : true;
         }
+
+        // JUMPING
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+            if (grounded)
+            {
+                rb.velocity += new Vector2(0.0f, jumpspeed);
+                grounded = false;
+                jumpHold = true;
+                Invoke("EndJumpHold", jumpHoldDuration);
+            }
+            else if (jumpHold)
+            {
+                rb.velocity += new Vector2(0.0f, jumpHoldSpeed);
+            }
+        }
+
+        // INTERACTING WITH A MUSHROOM
+        if (Input.GetKeyDown(KeyCode.S) && touchingShroom != null)
+        {
+            GetComponent<FadeController>().FadeShroom();
+            Invoke("TeleportToShroom", 0.5f);
+        }
+
+        //ANIMATOR CONTROL
+        animator.SetFloat("moveHor", Mathf.Abs(movementHor));
+        animator.SetBool("isJumping", !grounded);
     
     }
 
@@ -128,11 +125,6 @@ public class PlayerController : MonoBehaviour
         {
             touchingShroom = collision.gameObject.GetComponent<Mushroom>();
         }
-        else if (collision.gameObject.CompareTag("NPC"))
-        {
-            nearNPC = collision.gameObject;
-            FindObjectOfType<DialogueManager>().StartSpeaking(collision.GetComponent<NPCSpeaker>().dialogue);
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -140,10 +132,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Mushroom"))
         {
             touchingShroom = null;
-        }
-        else if (collision.gameObject.CompareTag("NPC"))
-        {
-            nearNPC = null;
         }
     }
 
