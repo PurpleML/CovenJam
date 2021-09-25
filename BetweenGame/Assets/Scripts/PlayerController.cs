@@ -67,9 +67,8 @@ public class PlayerController : MonoBehaviour
             // INTERACTING WITH A MUSHROOM
             if (Input.GetKeyDown(KeyCode.S) && touchingShroom != null)
             {
-                Vector2 teleToPos = touchingShroom.getTargetShroomLocation();
-                Vector3 teleTo3 = new Vector3(teleToPos.x, teleToPos.y, transform.position.z);
-                transform.position = teleTo3;
+                GetComponent<FadeController>().FadeShroom();
+                Invoke("TeleportToShroom", 0.5f);
             }
 
             //ANIMATOR CONTROL
@@ -82,6 +81,13 @@ public class PlayerController : MonoBehaviour
     private void EndJumpHold()
     {
         jumpHold = false;
+    }
+
+    private void TeleportToShroom()
+    {
+        Vector2 teleToPos = touchingShroom.getTargetShroomLocation();
+        Vector3 teleTo3 = new Vector3(teleToPos.x, teleToPos.y, transform.position.z);
+        transform.position = teleTo3;
     }
 
     // FixedUpdate is called once per time step
@@ -112,7 +118,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<FadeController>().FadeOut();
         dead = true;
-        Invoke("RestartLevel", 3);
+        Invoke("RestartLevel", 2);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

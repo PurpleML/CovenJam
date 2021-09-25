@@ -16219,6 +16219,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: e3825d59bcfec964e96084d1efddc969, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: e3825d59bcfec964e96084d1efddc969, type: 2}
+  - {fileID: 7400000, guid: 06d59b6c26b572d458ced1a5aaac8276, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -16603,6 +16604,10 @@ PrefabInstance:
       propertyPath: jumpHoldSpeed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 2940181767444131506, guid: dad63518ad27e844a86aef2ca616b762, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 690010039142787543, guid: dcd0cd2bef23bfb44ac9dc43a733c325, type: 3}
     - target: {fileID: 2940181767444131506, guid: dad63518ad27e844a86aef2ca616b762, type: 3}
       propertyPath: jumpHoldDuration
       value: 50
