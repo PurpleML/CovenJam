@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed;
+    public float jumpForce;
+
+    public GameObject groundCheck;
+
+    public Vector2 groundCheckPoint;
+    public float groundCheckRadius;
 
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
@@ -12,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     // separate variables for use in animation manager
     private float movementHor;
-    private float movementVer;
+    private bool isJumping;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +32,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         movementHor = Input.GetAxisRaw("Horizontal");
-        movementVer = Input.GetAxisRaw("Vertical");
-
         // mirror sprite to keep things simple
         if(movementHor < 0)
         {
@@ -38,16 +42,36 @@ public class PlayerController : MonoBehaviour
         {
             sprite.flipX = false;
         }
-        //set variables used in animator controller
-        animator.SetFloat("moveHor", Mathf.Abs(movementHor));
-        animator.SetFloat("moveVer", movementVer);
+        //set variables used in animator
+        animator.SetFloat("moveHor", Mathf.Abs(movementHor));   // this one is absolute since sprite flipping is done here
+
+        bool grounded = groundCheck.GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Ground"));
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+            isJumping = true;
+            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        }
     }
 
     // FixedUpdate is called once per time step
     void FixedUpdate()
     {
-        // clamp to prevent faster diag movement then multiply by speed
-        Vector2 movementVector = Vector2.ClampMagnitude(new Vector2(movementHor, movementVer), 1);
-        rb.velocity = movementVector * movementSpeed;   // using rb for movement to get easier collisions
+        rb.velocity = new Vector2(movementHor * movementSpeed, rb.velocity.y);
+
+        //Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, groundLayer);
+        //Vector2 relativeCheckPoint = new Vector2(transform.position.x, transform.position.y) + groundCheckPoint;
+        //Collider2D[] colliders = Physics2D.OverlapCircleAll(relativeCheckPoint, groundCheckRadius);
+        bool grounded = groundCheck.GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Ground"));
+        //for (int i = 0; i < colliders.Length; i++)
+        //{
+            //if (colliders[i].gameObject.CompareTag("Floor"))
+            if(grounded)
+            {
+                Debug.Log("grounded!");
+                isJumping = false;
+
+            }
+        //}
+        animator.SetBool("isJumping", isJumping);
     }
 }
