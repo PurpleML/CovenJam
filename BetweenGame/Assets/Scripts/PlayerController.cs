@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     // separate variables for use in animation manager
     private float movementHor;
     private bool isJumping;
+    private Mushroom touchingShroom;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,17 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
+
+        bool shroomed = GetComponent<CircleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Mushroom"));
+        if (Input.GetKeyDown(KeyCode.S) && shroomed)
+        {
+            if(touchingShroom == null)
+            {
+                Debug.Log("no shroom");
+            }
+            transform.position = touchingShroom.getTargetShroomLocation();
+            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        }
     }
 
     // FixedUpdate is called once per time step
@@ -67,11 +79,16 @@ public class PlayerController : MonoBehaviour
             //if (colliders[i].gameObject.CompareTag("Floor"))
             if(grounded)
             {
-                Debug.Log("grounded!");
+                //Debug.Log("grounded!");
                 isJumping = false;
 
             }
         //}
         animator.SetBool("isJumping", isJumping);
+    }
+
+    public void setShroom(Mushroom mushroom)
+    {
+        touchingShroom = mushroom;
     }
 }
