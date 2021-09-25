@@ -11,8 +11,9 @@ using UnityEngine;
 
 public class Lock : MonoBehaviour
 {
-    [SerializeField] private Mushroom shroomToChange;
-    [SerializeField] private Mushroom shroomToChangeWith;
+    [SerializeField] private GameObject key;
+    [SerializeField] private GameObject locked;
+    [SerializeField] private GameObject unlocked;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,10 @@ public class Lock : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Key"))
+        if (collision.gameObject.Equals(key))
         {
-            shroomToChange.setTargetShroom(shroomToChangeWith);
+            unlocked.SetActive(true);
+            locked.SetActive(false);
         }
     }
 }

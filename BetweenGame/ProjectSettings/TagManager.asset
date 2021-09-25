@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Floor
+  - Trigger
+  - Key
+  - Ground
+  - Mushroom
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - UI
   - 
   - 
-  - Mushroom
-  - Ground
+  - 
+  - 
   - 
   - 
   - 
