@@ -58,9 +58,11 @@ public class PlayerController : MonoBehaviour
         // INTERACTING WITH A MUSHROOM
         if (Input.GetKeyDown(KeyCode.S) && touchingShroom != null)
         {
-            Vector2 teleToPos = touchingShroom.getTargetShroomLocation();
-            Vector3 teleTo3 = new Vector3(teleToPos.x, teleToPos.y, transform.position.z);
-            transform.position = teleTo3;
+            var objects = GameObject.FindGameObjectsWithTag("Dream");
+            var objectCount = objects.Length;
+            foreach (var obj in objects) {
+                obj.GetComponent<DreamController>().setCollisions(true);
+            }
         }
 
         //ANIMATOR CONTROL
@@ -81,7 +83,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Floor"))
         {
             grounded = true;
         }
