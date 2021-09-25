@@ -103,7 +103,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 6200000, guid: 6230741773560b94abc393ef03a233ce, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpspeed: 5
+  jumpspeed: 9
   jumpHoldSpeed: 2
   jumpHoldDuration: 2
   deathParticles: {fileID: 690010039142787543, guid: dcd0cd2bef23bfb44ac9dc43a733c325, type: 3}
@@ -158,8 +158,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.75, y: 2.5}
+  m_Offset: {x: 0, y: -0.09312415}
+  m_Size: {x: 0.75, y: 2.2144194}
   m_Direction: 0
 --- !u!114 &-4923627057761610931
 MonoBehaviour:
