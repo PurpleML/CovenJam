@@ -11,6 +11,7 @@ using UnityEngine;
 
 public class Lock : MonoBehaviour
 {
+    [SerializeField] private bool destroyOnUse;
     [SerializeField] private GameObject key;
     [SerializeField] private List<GameObject> locked;
     [SerializeField] private List<GameObject> unlocked;
@@ -36,6 +37,10 @@ public class Lock : MonoBehaviour
             }
             foreach(GameObject lockee in locked){
                 lockee.SetActive(false);
+            }
+            if (destroyOnUse)
+            {
+                Destroy(gameObject);
             }
         }
     }

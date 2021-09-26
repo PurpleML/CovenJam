@@ -64,7 +64,7 @@ public class DialogueManager : MonoBehaviour
             dialogue.speakerChatter.pitch = Random.Range(.9f, 1.1f);
             dialogue.speakerChatter.Play();
             lineText.text += letter;
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(dialogue.speakingSpeed);
         }
     }
 
