@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool dead;
     private Mushroom touchingShroom;
     private GameObject nearNPC;
+    private bool onPillow;
 
     // Start is called before the first frame update
     void Awake()
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
         inMovement = true;
         touchingShroom = null;
         nearNPC = null;
+        onPillow = false;
     }
 
     // Update is called once per frame
@@ -76,8 +78,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            // INTERACTING WITH A MUSHROOM
-            if (Input.GetKeyDown(KeyCode.S) && touchingShroom != null)
+            // INTERACTING WITH A MUSHROOM or pillow
+            if (Input.GetKeyDown(KeyCode.S) && (touchingShroom != null || onPillow))
             {
                 rb.velocity = Vector2.zero;
                 animator.SetFloat("moveHor", 0);
@@ -98,6 +100,7 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("isJumping", false);
                 FindObjectOfType<DialogueManager>().StartSpeaking(nearNPC.GetComponent<NPCSpeaker>().dialogue);
             }
+
         }
         else if (!dead)
         {
@@ -129,14 +132,25 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isSleeping", true);
         inMovement = false;
         yield return new WaitForSeconds(3f);
-        GetComponent<FadeController>().FadeShroom();
-        Invoke("TeleportToShroom", 0.5f);
-        yield return new WaitForSeconds(.7f);
-        animator.SetBool("isSleeping", false);
-        animator.SetBool("isWaking", true);
-        yield return new WaitForSeconds(.75f);
-        animator.SetBool("isWaking", false);
-        inMovement = true;
+
+        if (!onPillow)
+        {
+            GetComponent<FadeController>().FadeShroom();
+            Invoke("TeleportToShroom", 0.5f);
+            yield return new WaitForSeconds(.7f);
+            animator.SetBool("isSleeping", false);
+            animator.SetBool("isWaking", true);
+            yield return new WaitForSeconds(.75f);
+            animator.SetBool("isWaking", false);
+            inMovement = true;
+        }
+        else
+        {
+            Debug.Log("Level Over");
+            GetComponent<FadeController>().FadeShroom();
+            yield return new WaitForSeconds(.5f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     // FixedUpdate is called once per time step
@@ -181,6 +195,10 @@ public class PlayerController : MonoBehaviour
         {
             nearNPC = collision.gameObject;
         }
+        else if (collision.gameObject.CompareTag("Pillow"))
+        {
+            onPillow = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -192,6 +210,10 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("NPC"))
         {
             nearNPC = null;
+        }
+        else if (collision.gameObject.CompareTag("Pillow"))
+        {
+            onPillow = false;
         }
     }
 

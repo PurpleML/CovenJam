@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/purplelevel.unity
     guid: 876a1fe13d95eea4d8528f966cc92bf0
+  - enabled: 1
+    path: Assets/Scenes/endscene.unity
+    guid: 59971fb8a20d4e749ad833e1553e13b6
   m_configObjects: {}

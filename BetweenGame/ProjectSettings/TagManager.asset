@@ -10,6 +10,8 @@ TagManager:
   - Mushroom
   - Bounce
   - Nightmare
+  - NPC
+  - Pillow
   layers:
   - Default
   - TransparentFX
