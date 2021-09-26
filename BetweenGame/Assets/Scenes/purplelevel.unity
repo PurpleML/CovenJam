@@ -8417,7 +8417,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7420844433758861492, guid: 729a0665956e9dc4b8b09ef06d486f06, type: 3}
       propertyPath: dialogue.lines.Array.data[3]
-      value: Your kind has only managed to reveal 14,000 our of unnumerable species?
+      value: Your kind has only managed to reveal about 14,000 our of innumerable
+        species?
       objectReference: {fileID: 0}
     - target: {fileID: 7420844433758861492, guid: 729a0665956e9dc4b8b09ef06d486f06, type: 3}
       propertyPath: dialogue.lines.Array.data[4]
@@ -16146,6 +16147,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7586467583931933316, guid: fcb998cdcee55c24fbb03e328496682b, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7586467583931933316, guid: fcb998cdcee55c24fbb03e328496682b, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7586467583931933316, guid: fcb998cdcee55c24fbb03e328496682b, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 7586467583931933317, guid: fcb998cdcee55c24fbb03e328496682b, type: 3}
       propertyPath: m_Camera
       value: 
@@ -17976,7 +17989,7 @@ RectTransform:
   m_GameObject: {fileID: 1610617583}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1307620990}
   m_Father: {fileID: 2095577347}
@@ -17984,7 +17997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -70}
+  m_AnchoredPosition: {x: 0, y: -239.1}
   m_SizeDelta: {x: 667.15, y: 202.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1610617585
@@ -21303,8 +21316,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -225, y: 50}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -220.47, y: 50}
+  m_SizeDelta: {x: 180, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1932181005
 CanvasRenderer:
@@ -21341,7 +21354,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
