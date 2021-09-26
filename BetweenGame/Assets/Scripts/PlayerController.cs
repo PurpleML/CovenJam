@@ -74,6 +74,26 @@ public class PlayerController : MonoBehaviour
             //ANIMATOR CONTROL
             animator.SetFloat("moveHor", Mathf.Abs(movementHor));
             animator.SetBool("isJumping", !grounded);
+
+            //CHECK FOR DIALOGUE INTERACT
+            if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E)) && nearNPC != null)
+            {
+                inMovement = false;
+                rb.velocity = Vector2.zero;
+                animator.SetFloat("moveHor",  0);
+                animator.SetBool("isJumping", false);
+                FindObjectOfType<DialogueManager>().StartSpeaking(nearNPC.GetComponent<NPCSpeaker>().dialogue);
+            }
+        }
+        else if (!dead)
+        {
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))
+            {
+                if (!FindObjectOfType<DialogueManager>().DisplayNextLine())
+                {
+                    inMovement = true;
+                }
+            }
         }
     
     }
@@ -131,7 +151,6 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("NPC"))
         {
             nearNPC = collision.gameObject;
-            FindObjectOfType<DialogueManager>().StartSpeaking(collision.GetComponent<NPCSpeaker>().dialogue);
         }
     }
 

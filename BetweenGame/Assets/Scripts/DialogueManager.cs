@@ -37,17 +37,18 @@ public class DialogueManager : MonoBehaviour
         DisplayNextLine();
     }
 
-    public void DisplayNextLine()
+    public bool DisplayNextLine()
     {
         if(lines.Count == 0)
         {
             EndSpeaking();
-            return;
+            return false;
         }
         string line = lines.Dequeue();
         //lineText.text = line;
         StopAllCoroutines();
         StartCoroutine(TypeLine(line));
+        return true;
     }
 
     IEnumerator TypeLine (string line)
