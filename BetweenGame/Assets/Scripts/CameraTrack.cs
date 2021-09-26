@@ -6,8 +6,10 @@ using UnityEngine;
 // this class just causes the camera to follow the player rigidly in terms of x and y coordinates
 public class CameraTrack : MonoBehaviour
 {
-
     [SerializeField] private GameObject tracked;
+    [SerializeField] private Vector3 offset;
+    [SerializeField] private float factor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +17,9 @@ public class CameraTrack : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        gameObject.transform.position = new Vector3(tracked.transform.position.x, tracked.transform.position.y + 1.5f, gameObject.transform.position.z);
+        Vector3 deltaPosition = (gameObject.transform.position - offset) - tracked.transform.position;
+        gameObject.transform.position -= deltaPosition * factor;
     }
 }
