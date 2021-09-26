@@ -16214,6 +16214,10 @@ PrefabInstance:
       propertyPath: bounciness
       value: 2.4
       objectReference: {fileID: 0}
+    - target: {fileID: 7892537834073600365, guid: ac0168df83788344591999d24b627bb0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.39
+      objectReference: {fileID: 0}
     - target: {fileID: 7892537834073600367, guid: ac0168df83788344591999d24b627bb0, type: 3}
       propertyPath: m_Name
       value: BounceShroom

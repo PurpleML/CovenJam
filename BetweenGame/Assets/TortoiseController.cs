@@ -24,6 +24,15 @@ public class TortoiseController : MonoBehaviour
     {
         rb.velocity = new Vector2(horz * speed, 0.0f);
 
+        if(rb.velocity.x > 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+
         Rigidbody2D bigTortoiseRb = bigTortoise.GetComponent<Rigidbody2D>();
         bigTortoiseRb.transform.position = new Vector3(rb.transform.position.x, bigTortoiseRb.transform.position.y);
     }
