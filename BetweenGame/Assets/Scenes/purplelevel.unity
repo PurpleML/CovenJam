@@ -16146,6 +16146,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7586467583931933317, guid: fcb998cdcee55c24fbb03e328496682b, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2017139968}
+    - target: {fileID: 7586467583931933317, guid: fcb998cdcee55c24fbb03e328496682b, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7586467583931933318, guid: fcb998cdcee55c24fbb03e328496682b, type: 3}
       propertyPath: m_Name
       value: FadeCanvas
