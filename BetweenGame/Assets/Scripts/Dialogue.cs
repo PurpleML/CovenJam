@@ -8,6 +8,7 @@ public class Dialogue
 {
     public Sprite speakerHead;
     public string speaker;
+    public AudioSource speakerChatter;
 
     [TextArea(3, 10)]
     public string[] lines;

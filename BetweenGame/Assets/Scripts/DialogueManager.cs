@@ -11,12 +11,14 @@ public class DialogueManager : MonoBehaviour
 
     public Animator dialogueAnimator;
 
+    private Dialogue dialogue;
     private Queue<string> lines;
 
     // Start is called before the first frame update
     void Start()
     {
         lines = new Queue<string>();
+        dialogue = null;
     }
 
     // Update is called once per frame
@@ -37,6 +39,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         DisplayNextLine();
+        this.dialogue = dialogue;
     }
 
     public bool DisplayNextLine()
@@ -58,8 +61,10 @@ public class DialogueManager : MonoBehaviour
         lineText.text = "";
         foreach(char letter in line.ToCharArray())
         {
+            dialogue.speakerChatter.pitch = Random.Range(.9f, 1.1f);
+            dialogue.speakerChatter.Play();
             lineText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(.05f);
         }
     }
 

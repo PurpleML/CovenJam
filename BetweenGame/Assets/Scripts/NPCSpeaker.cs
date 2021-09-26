@@ -6,6 +6,10 @@ public class NPCSpeaker : MonoBehaviour
 {
     public Dialogue dialogue;
 
+    public void Awake()
+    {
+    }
+
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartSpeaking(dialogue);
