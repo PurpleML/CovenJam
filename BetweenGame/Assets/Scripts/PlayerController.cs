@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isJumping", !grounded);
 
             //CHECK FOR DIALOGUE INTERACT
-            if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E)) && nearNPC != null)
+            if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.E)) && nearNPC != null)
             {
                 inMovement = false;
                 rb.velocity = Vector2.zero;
