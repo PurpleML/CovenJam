@@ -30,6 +30,7 @@ public class DialogueManager : MonoBehaviour
     public void StartSpeaking( Dialogue dialogue)
     {
         lines.Clear();
+        this.dialogue = dialogue;
         dialogueAnimator.SetBool("inDialogue",true);
         speakerImage.sprite = dialogue.speakerHead;
         nameText.text = dialogue.speaker;
@@ -39,7 +40,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         DisplayNextLine();
-        this.dialogue = dialogue;
     }
 
     public bool DisplayNextLine()
