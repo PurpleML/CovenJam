@@ -7,6 +7,7 @@ public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text lineText;
+    public Image speakerImage;
 
     public Animator dialogueAnimator;
 
@@ -28,6 +29,7 @@ public class DialogueManager : MonoBehaviour
     {
         lines.Clear();
         dialogueAnimator.SetBool("inDialogue",true);
+        speakerImage.sprite = dialogue.speakerHead;
         nameText.text = dialogue.speaker;
         foreach(string line in dialogue.lines)
         {
