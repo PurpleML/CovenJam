@@ -12,8 +12,8 @@ using UnityEngine;
 public class Lock : MonoBehaviour
 {
     [SerializeField] private GameObject key;
-    [SerializeField] private GameObject locked;
-    [SerializeField] private GameObject unlocked;
+    [SerializeField] private List<GameObject> locked;
+    [SerializeField] private List<GameObject> unlocked;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +31,12 @@ public class Lock : MonoBehaviour
     {
         if (collision.gameObject.Equals(key))
         {
-            unlocked.SetActive(true);
-            locked.SetActive(false);
+            foreach(GameObject unlock in unlocked) {
+                unlock.SetActive(true);
+            }
+            foreach(GameObject lockee in locked){
+                lockee.SetActive(false);
+            }
         }
     }
 }
