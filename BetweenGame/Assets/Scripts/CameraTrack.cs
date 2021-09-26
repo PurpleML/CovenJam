@@ -22,4 +22,14 @@ public class CameraTrack : MonoBehaviour
         Vector3 deltaPosition = (gameObject.transform.position - offset) - tracked.transform.position;
         gameObject.transform.position -= deltaPosition * factor;
     }
+
+    public Vector3 GetOffset()
+    {
+        return offset;
+    }
+
+    public void SetOffset(Vector3 newOffset)
+    {
+        offset = newOffset;
+    }
 }

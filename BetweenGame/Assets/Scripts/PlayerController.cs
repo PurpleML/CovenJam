@@ -41,6 +41,17 @@ public class PlayerController : MonoBehaviour
     {
         if (inMovement && !dead)
         {
+            //Camera cam = FindObjectOfType<Camera>();
+            //if (grounded)
+            //{
+            //    cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 5, Time.deltaTime * 3);
+            //    Vector3 camOffse
+            //    cam.gameObject.GetComponent<CameraTrack>().SetOffset(Mathf.Lerp(, 5, Time.deltaTime * 3));
+            //}
+            //else
+            //{
+            //    cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 7.5f, Time.deltaTime);
+            //}
             // MOVEMENT
             float movementHor = Input.GetAxisRaw("Horizontal");
             rb.velocity = new Vector2(movementHor * speed, rb.velocity.y);
