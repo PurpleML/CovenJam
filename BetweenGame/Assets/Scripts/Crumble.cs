@@ -5,6 +5,7 @@ using UnityEngine;
 public class Crumble : MonoBehaviour
 {
     [SerializeField] private float crumbleTimer;
+    [SerializeField] private float regrowTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,13 @@ public class Crumble : MonoBehaviour
     IEnumerator CrumbleAway()
     {
         yield return new WaitForSeconds(crumbleTimer);
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        //gameObject.SetActive(false);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(regrowTimer);
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        //gameObject.SetActive(true);
     }
 }
