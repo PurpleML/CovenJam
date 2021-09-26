@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 724a729baf9eb4f43adebbd03c15f4e1
+guid: eb40e21f1793eb9439cbefc0a0bf8f0a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 61760401134381855
-    second: ratwalk_0
+      213: 6487974787049709706
+    second: leopard2_0
   - first:
-      213: -8218138995889949345
-    second: ratwalk_1
+      213: -781237852587127609
+    second: leopard2_1
   - first:
-      213: 1717830411051543608
-    second: ratwalk_2
+      213: 1402268980178173925
+    second: leopard2_2
   - first:
-      213: -1412796711312503778
-    second: ratwalk_3
+      213: 3080643952087979552
+    second: leopard2_3
+  - first:
+      213: -7918327926562668446
+    second: leopard2_4
+  - first:
+      213: -1168997358190226281
+    second: leopard2_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ratwalk_0
+      name: leopard2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 250
-        height: 256
+        width: 491.66666
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,20 +135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1becc2f1ca6bd000800000000000000
-      internalID: 61760401134381855
+      spriteID: a80e9cda1bae90a50800000000000000
+      internalID: 6487974787049709706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ratwalk_1
+      name: leopard2_1
       rect:
         serializedVersion: 2
-        x: 250
+        x: 491
         y: 0
-        width: 250
-        height: 256
+        width: 491.66666
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f55b133ff1e43fd80800000000000000
-      internalID: -8218138995889949345
+      spriteID: 7cc847fef4c7825f0800000000000000
+      internalID: -781237852587127609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ratwalk_2
+      name: leopard2_2
       rect:
         serializedVersion: 2
-        x: 500
+        x: 982
         y: 0
-        width: 250
-        height: 256
+        width: 491.66666
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83c271b48a5f6d710800000000000000
-      internalID: 1717830411051543608
+      spriteID: 5efb11b353cd57310800000000000000
+      internalID: 1402268980178173925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ratwalk_3
+      name: leopard2_3
       rect:
         serializedVersion: 2
-        x: 750
+        x: 1473
         y: 0
-        width: 250
-        height: 256
+        width: 491.66666
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,8 +198,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1cc06a50ecb46ce0800000000000000
-      internalID: -1412796711312503778
+      spriteID: 026d8ab3a55a0ca20800000000000000
+      internalID: 3080643952087979552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leopard2_4
+      rect:
+        serializedVersion: 2
+        x: 1964
+        y: 0
+        width: 491.66666
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2604d2234b27c1290800000000000000
+      internalID: -7918327926562668446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leopard2_5
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 0
+        width: 491.66666
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79493b9a813e6cfe0800000000000000
+      internalID: -1168997358190226281
       vertices: []
       indices: 
       edges: []
