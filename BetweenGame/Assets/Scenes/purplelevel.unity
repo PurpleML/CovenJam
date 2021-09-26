@@ -1508,7 +1508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7586467583931933318, guid: fcb998cdcee55c24fbb03e328496682b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7586467583931933322, guid: fcb998cdcee55c24fbb03e328496682b, type: 3}
       propertyPath: m_Pivot.x
@@ -2245,7 +2245,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2288,6 +2288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracked: {fileID: 1708599304}
+  offset: {x: 0, y: 2.5, z: -20}
+  factor: 0.5
 --- !u!4 &2050930458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4896790049753320920, guid: 2affe981f4f14f0488c408a446fa7b3b, type: 3}

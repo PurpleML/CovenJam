@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(.7f);
         animator.SetBool("isSleeping", false);
         animator.SetBool("isWaking", true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.75f);
         animator.SetBool("isWaking", false);
         inMovement = true;
     }
