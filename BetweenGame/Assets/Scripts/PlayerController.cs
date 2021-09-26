@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private Mushroom touchingShroom;
     private GameObject nearNPC;
 
+    public bool bouncing;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -150,6 +152,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             grounded = true;
+            bouncing = false;
         }
         else if (collision.gameObject.CompareTag("Mushroom"))
         {

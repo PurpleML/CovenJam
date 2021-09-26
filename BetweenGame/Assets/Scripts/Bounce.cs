@@ -24,7 +24,11 @@ public class Bounce : MonoBehaviour
         Debug.Log("bounce!");
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity += collision.relativeVelocity * -1 * bounciness;
+            if (collision.gameObject.GetComponent<PlayerController>().bouncing == false)
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity += collision.relativeVelocity * -1 * bounciness;
+            else
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity += collision.relativeVelocity * -1;
+            collision.gameObject.GetComponent<PlayerController>().bouncing = true;
         }
     }
 }
