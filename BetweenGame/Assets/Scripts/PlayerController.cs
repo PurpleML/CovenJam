@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         dead = false;
         inMovement = true;
         touchingShroom = null;
+        nearNPC = null;
     }
 
     // Update is called once per frame
@@ -67,8 +68,10 @@ public class PlayerController : MonoBehaviour
             // INTERACTING WITH A MUSHROOM
             if (Input.GetKeyDown(KeyCode.S) && touchingShroom != null)
             {
-                GetComponent<FadeController>().FadeShroom();
-                Invoke("TeleportToShroom", 0.5f);
+                rb.velocity = Vector2.zero;
+                animator.SetFloat("moveHor", 0);
+                animator.SetBool("isJumping", false);
+                StartCoroutine(Sleep());
             }
 
             //ANIMATOR CONTROL
@@ -106,8 +109,23 @@ public class PlayerController : MonoBehaviour
     private void TeleportToShroom()
     {
         Vector2 teleToPos = touchingShroom.getTargetShroomLocation();
-        Vector3 teleTo3 = new Vector3(teleToPos.x, teleToPos.y, transform.position.z);
+        Vector3 teleTo3 = new Vector3(teleToPos.x, teleToPos.y-.6f, transform.position.z);
         transform.position = teleTo3;
+    }
+
+    IEnumerator Sleep()
+    {
+        animator.SetBool("isSleeping", true);
+        inMovement = false;
+        yield return new WaitForSeconds(3f);
+        GetComponent<FadeController>().FadeShroom();
+        Invoke("TeleportToShroom", 0.5f);
+        yield return new WaitForSeconds(.7f);
+        animator.SetBool("isSleeping", false);
+        animator.SetBool("isWaking", true);
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("isWaking", false);
+        inMovement = true;
     }
 
     // FixedUpdate is called once per time step
