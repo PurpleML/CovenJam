@@ -15402,7 +15402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7892537834073600364, guid: ac0168df83788344591999d24b627bb0, type: 3}
       propertyPath: bounciness
-      value: 2.7
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 7892537834073600365, guid: ac0168df83788344591999d24b627bb0, type: 3}
       propertyPath: m_Size.x
@@ -16216,7 +16216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7892537834073600364, guid: ac0168df83788344591999d24b627bb0, type: 3}
       propertyPath: bounciness
-      value: 3
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 7892537834073600365, guid: ac0168df83788344591999d24b627bb0, type: 3}
       propertyPath: m_Size.x

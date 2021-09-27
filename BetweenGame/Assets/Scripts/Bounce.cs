@@ -27,12 +27,12 @@ public class Bounce : MonoBehaviour
             if (collision.gameObject.GetComponent<PlayerController>().bouncing == false)
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity += collision.relativeVelocity * -1 * bounciness;
-                Mathf.Clamp(collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude, 0f, 20f);
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x, Mathf.Clamp(collision.gameObject.GetComponent<Rigidbody2D>().velocity.y, 0f, 30f));
             }
             else
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity += collision.relativeVelocity * -1;
-                Mathf.Clamp(collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude, 0f, 20f);
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x, Mathf.Clamp(collision.gameObject.GetComponent<Rigidbody2D>().velocity.y, 0f, 30f));
             }
                 collision.gameObject.GetComponent<PlayerController>().bouncing = true;
         }
