@@ -2071,15 +2071,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_Size.x
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_Size.y
-      value: 0.33
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -2091,11 +2091,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.28
+      value: 1.032258
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.28
+      value: 1.032258
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495579, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: regrowTimer
@@ -10846,15 +10846,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_Size.x
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_Size.y
-      value: 0.33
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -10866,11 +10866,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.28
+      value: 1.032258
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.28
+      value: 1.032258
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495579, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: regrowTimer
@@ -15464,15 +15464,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_Size.x
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_Size.y
-      value: 0.33
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -21339,15 +21339,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_Size.x
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_Size.y
-      value: 0.33
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -21359,11 +21359,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.28
+      value: 1.032258
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495578, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.28
+      value: 1.032258
       objectReference: {fileID: 0}
     - target: {fileID: 7969091161692495579, guid: 716642bfbc8dba74ba73be5d41d4f688, type: 3}
       propertyPath: regrowTimer
