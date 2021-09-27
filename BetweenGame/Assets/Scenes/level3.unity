@@ -3281,7 +3281,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: ad809fe5ae4e6474cbc93cf1bbf8c54c, type: 3}
+    - sprite: {fileID: 21300000, guid: 25e52c0da67a302449713eb876502f2f, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -9371,6 +9371,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4995299800877813105, guid: dad63518ad27e844a86aef2ca616b762, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4995299800877813106, guid: dad63518ad27e844a86aef2ca616b762, type: 3}
       propertyPath: m_RootOrder
       value: 1
