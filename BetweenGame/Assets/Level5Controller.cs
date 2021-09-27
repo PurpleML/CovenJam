@@ -38,8 +38,10 @@ public class Level5Controller : MonoBehaviour
                 sprite.enabled = true;
                 Destroy(Boulder2);
                 sprite2.enabled = true;
-            }  
-            rb.isKinematic = true;
+                rb.isKinematic = true;
+                Tortoise.GetComponent<TortoiseController>().isDone = true;
+                Tortoise.transform.position = new Vector3(27.7f,1.4f,0);
+            }
             Tortoise.GetComponent<TortoiseController>().speed = 0;
         }
     }

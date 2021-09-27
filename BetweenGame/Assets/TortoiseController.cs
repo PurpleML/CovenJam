@@ -9,6 +9,7 @@ public class TortoiseController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     public GameObject bigTortoise;
+    public bool isDone;
 
     private int horz;
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class TortoiseController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         horz = 1;
+        isDone = false;
     }
 
     // Update is called once per frame

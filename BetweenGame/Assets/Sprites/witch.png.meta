@@ -38,6 +38,9 @@ TextureImporter:
   - first:
       213: -7124819208492482280
     second: witch_11
+  - first:
+      213: -8754525697562333123
+    second: witch_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -146,8 +149,8 @@ TextureImporter:
         y: 0
         width: 288
         height: 512
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,8 +170,8 @@ TextureImporter:
         y: 0
         width: 307
         height: 512
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,8 +191,8 @@ TextureImporter:
         y: 0
         width: 305
         height: 512
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,8 +212,8 @@ TextureImporter:
         y: 0
         width: 310
         height: 512
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,8 +233,8 @@ TextureImporter:
         y: 0
         width: 313
         height: 512
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -251,8 +254,8 @@ TextureImporter:
         y: 0
         width: 309
         height: 512
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,8 +275,8 @@ TextureImporter:
         y: 0
         width: 312
         height: 512
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -293,8 +296,8 @@ TextureImporter:
         y: 0
         width: 310.83334
         height: 512
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -314,8 +317,8 @@ TextureImporter:
         y: 0
         width: 299
         height: 512
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -335,8 +338,8 @@ TextureImporter:
         y: 0
         width: 309
         height: 512
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -356,8 +359,8 @@ TextureImporter:
         y: 0
         width: 310.83334
         height: 512
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -373,12 +376,12 @@ TextureImporter:
       name: witch_11
       rect:
         serializedVersion: 2
-        x: 3410
+        x: 3412
         y: 0
         width: 318
         height: 512
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -386,6 +389,27 @@ TextureImporter:
       bones: []
       spriteID: 8110de4cdae8f1d90800000000000000
       internalID: -7124819208492482280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: witch_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 3730
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d30b4c3f24da18680800000000000000
+      internalID: -8754525697562333123
       vertices: []
       indices: 
       edges: []
