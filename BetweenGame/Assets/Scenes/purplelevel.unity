@@ -22754,6 +22754,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4995299800877813109, guid: dad63518ad27e844a86aef2ca616b762, type: 3}
+      propertyPath: m_Size.y
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995299800877813109, guid: dad63518ad27e844a86aef2ca616b762, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995299800877813109, guid: dad63518ad27e844a86aef2ca616b762, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 4995299800877813111, guid: dad63518ad27e844a86aef2ca616b762, type: 3}
       propertyPath: jumpspeed
       value: 10
