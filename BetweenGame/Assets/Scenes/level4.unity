@@ -16358,6 +16358,10 @@ PrefabInstance:
       value: Player 1
       objectReference: {fileID: 0}
     - target: {fileID: 4995299800877813111, guid: dad63518ad27e844a86aef2ca616b762, type: 3}
+      propertyPath: speed
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995299800877813111, guid: dad63518ad27e844a86aef2ca616b762, type: 3}
       propertyPath: jumpspeed
       value: 10
       objectReference: {fileID: 0}
