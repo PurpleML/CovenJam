@@ -126,6 +126,7 @@ MonoBehaviour:
   jumpHoldSpeed: 2
   jumpHoldDuration: 2
   deathParticles: {fileID: 690010039142787543, guid: dcd0cd2bef23bfb44ac9dc43a733c325, type: 3}
+  bouncing: 0
 --- !u!95 &4995299800877813110
 Animator:
   serializedVersion: 3
@@ -158,8 +159,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.09312415}
-  m_Size: {x: 0.75, y: 2.2144194}
+  m_Offset: {x: -0.047008276, y: -0.100485444}
+  m_Size: {x: 0.8865957, y: 2.229142}
   m_Direction: 0
 --- !u!114 &-4923627057761610931
 MonoBehaviour:
